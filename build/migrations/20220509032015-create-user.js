@@ -18,30 +18,6 @@ module.exports = {
                     autoIncrement: true,
                     comment: "Código de usuario",
                 },
-                firstName: {
-                    type: Sequelize.STRING,
-                    allowNull: false,
-                    validate: {
-                        notEmpty: true
-                    },
-                    comment: "Nombre del usuario",
-                },
-                middleName: {
-                    type: Sequelize.STRING,
-                    allowNull: false,
-                    validate: {
-                        notEmpty: true
-                    },
-                    comment: "Segundo nombre del usuario",
-                },
-                lastName: {
-                    type: Sequelize.STRING,
-                    allowNull: false,
-                    validate: {
-                        notEmpty: true
-                    },
-                    comment: "Apellido del usuario",
-                },
                 email: {
                     type: Sequelize.STRING,
                     allowNull: false,
@@ -74,22 +50,6 @@ module.exports = {
                     },
                     comment: "Contraseña del usuario",
                 },
-                photoProfile: {
-                    type: Sequelize.STRING,
-                    allowNull: false,
-                    validate: {
-                        notEmpty: true
-                    },
-                    comment: "Foto de perfil del usuario",
-                },
-                photoBackground: {
-                    type: Sequelize.STRING,
-                    allowNull: false,
-                    validate: {
-                        notEmpty: true
-                    },
-                    comment: "Foto de fondo del usuario",
-                },
                 IND_INS: {
                     type: Sequelize.BOOLEAN,
                     allowNull: false,
@@ -108,7 +68,7 @@ module.exports = {
                     },
                     comment: "Estado del usuario",
                 },
-            });
+            }, { timestamps: false });
         });
     },
     down(queryInterface) {

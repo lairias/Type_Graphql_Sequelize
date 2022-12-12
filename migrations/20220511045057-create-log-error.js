@@ -2,14 +2,24 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('log_errors', {
-      id: {
+      cod_error_log: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
+        comment: "Código de errro",
         type: Sequelize.INTEGER
       },
-      firstName: {
+      des_error: {
+        comment: "descripción del error",
         type: Sequelize.STRING
+      },
+      path_error: {
+        comment: "ruta de error",
+        type: Sequelize.STRING
+      },
+      type_error:{
+        allowNull:false,
+        type:Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

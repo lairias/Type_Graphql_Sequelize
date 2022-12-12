@@ -84,7 +84,7 @@ module.exports = {
                     allowNull: false,
                     comment: "Fecha de nacimiento del usuario",
                 },
-            });
+            }, { timestamps: false });
         });
     },
     down(queryInterface, Sequelize) {

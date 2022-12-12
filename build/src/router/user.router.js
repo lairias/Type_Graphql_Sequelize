@@ -12,21 +12,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const models_1 = __importDefault(require("../../../models"));
-// import people from '../../../models/People/people';
-// import Usuario from '../../../models/People/users';
-const resolvers = {
-    Query: {
-        GetAllUser: () => __awaiter(void 0, void 0, void 0, function* () {
-            const users = yield models_1.default.pe_people.findAll();
-            // const users = await Usuario.findAll({
-            //   include: [
-            //    { model : people,
-            //     as : 'pe_people'}
-            //   ]
-            // });
-            return users;
-        }),
-    }
-};
-exports.default = resolvers;
+const express_1 = __importDefault(require("express"));
+const models_1 = __importDefault(require("../../models"));
+// import people from "../../models/People/people";
+// import Usuario from "../../models/People/users";
+const router = express_1.default.Router();
+router.get("/", (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    //  const user = 
+    const users = yield models_1.default.pe_people.findAll();
+    res.json(users);
+}));
+exports.default = router;

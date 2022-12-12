@@ -74,7 +74,7 @@ module.exports = {
         allowNull: false,
         comment: "Fecha de nacimiento del usuario",
       },
-    });
+    },{ timestamps: false } );
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('pe_people');
