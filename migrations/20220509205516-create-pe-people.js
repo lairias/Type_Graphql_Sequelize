@@ -74,6 +74,15 @@ module.exports = {
         allowNull: false,
         comment: "Fecha de nacimiento del usuario",
       },
+      
+      createdAtPeople: {
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+        type: Sequelize.DATE
+      },
+      updatedAtPeople: {
+        defaultValue:Sequelize.literal(" NULL ON UPDATE CURRENT_TIMESTAMP"),
+        type: Sequelize.DATE
+      }
     },{ timestamps: false } );
   },
   async down(queryInterface, Sequelize) {

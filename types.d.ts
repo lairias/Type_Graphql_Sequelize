@@ -7,6 +7,8 @@ export interface ISession {
     user_agent:string;
     payload:string;
     last_activty:string;
+    createdAtSession:string;
+    updatedAtSession:string;
 }
 
 export interface IPeople {
@@ -21,7 +23,7 @@ export interface IPeople {
     age: number;
     birthDate: Date;
     createdAtPeople: string
-updatedAtPeople: string;
+    updatedAtPeople: string;
 }
 export interface IUser {
     cod_user: number;
@@ -33,8 +35,8 @@ export interface IUser {
     verifiedEmail: Ind;
     ind_usr: Ind;
     ins_usr: Ind;
-    createdAtUser: string
-updatedAtUser: string
+    createdAtUser: string;
+updatedAtUser: string;
 }
 export interface IRole{
     cod_role: number;

@@ -5,12 +5,6 @@ module.exports = {
       cod_role: {
         type: Sequelize.INTEGER,
         comment: "Código de rol", 
-        // references: {
-        //   model: {
-        //     tableName: 'role', // name of Target model
-        //   },
-        //   key: 'cod_role',  // key in Target model
-        // },
         references: {
           model: {
             tableName: 'role',
@@ -29,7 +23,7 @@ module.exports = {
           key: 'cod_permission',  // cod_permission
         },
       },
-    });
+    }, {timestamps:false});
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('role_has_permissions');

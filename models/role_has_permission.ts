@@ -1,6 +1,6 @@
 'use strict';
 import { Model } from 'sequelize'
-import { IRoleHasPermission } from '../src/types';
+import { IRoleHasPermission } from '../types';
 module.exports = (sequelize: any, DataTypes: any) => {
   class role_has_permission extends Model<IRoleHasPermission> implements IRoleHasPermission {
     /**
@@ -21,7 +21,10 @@ module.exports = (sequelize: any, DataTypes: any) => {
       type: DataTypes.INTEGER,
       comment: "Código de permiso",
     },
+    
+    
   }, {
+    timestamps:false,
     sequelize,
     modelName: 'role_has_permission',
   });

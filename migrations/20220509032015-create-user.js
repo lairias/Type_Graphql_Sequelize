@@ -8,7 +8,6 @@ module.exports = {
         autoIncrement: true,
         comment: "Código de usuario",
       },
-      
       email: {
         type:Sequelize.STRING,
         allowNull: false,
@@ -41,7 +40,23 @@ module.exports = {
         },
         comment: "Contraseña del usuario",
       },
-      IND_INS: {
+      
+    _token: {
+      type: Sequelize.STRING(250),
+      allowNull: false,
+      defaultValue: false,
+      validate: {
+        notEmpty: true
+      },
+      comment: "Indicador de primer ingreso",
+    },
+    verifiedEmail: {
+      type: Sequelize.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+      comment: "Indicador de correo verificado",
+    },
+      ind_usr: {
         type:Sequelize.BOOLEAN,
         allowNull: false,
         defaultValue: false,
@@ -50,18 +65,24 @@ module.exports = {
         },
         comment: "Indicador de primer ingreso",
       },
-      IND_USR: {
+      ins_usr: {
         type:Sequelize.BOOLEAN,
         defaultValue: true,
-  
         allowNull: false,
         validate: {
           notEmpty: true
         },
         comment: "Estado del usuario",
       },
-  
-  
+      updatedAtUser: {
+        defaultValue:Sequelize.literal(" NULL ON UPDATE CURRENT_TIMESTAMP"),
+        type: Sequelize.DATE
+      },
+      createdAtUser: {
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+        allowNull: false,
+        type: Sequelize.DATE
+      }
     },
     { timestamps: false } );
   },

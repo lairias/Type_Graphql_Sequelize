@@ -1,6 +1,6 @@
 'use strict';
 
-import { IUserHasRole } from "../src/types";
+import { IUserHasRole } from "../types";
 
 const {
   Model
@@ -25,7 +25,9 @@ module.exports = (sequelize: any, DataTypes: any) => {
       comment: "Código de rol",
     },
   }, {
+    
     sequelize,
+    timestamps:false,
     modelName: 'user_has_role',
   });
   return user_has_role;

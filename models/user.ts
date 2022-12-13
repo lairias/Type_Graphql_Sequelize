@@ -20,7 +20,8 @@ module.exports = (sequelize: any, DataTypes: any) => {
     verifiedEmail!: boolean;
     ind_usr!: boolean;
     ins_usr!: boolean;
-
+    updatedAtUser!:string;
+    createdAtUser!:string;
     static associate(models: any) {
       pe_users.hasMany(models.pe_people, {
         foreignKey: 'cod_user',
@@ -110,9 +111,19 @@ module.exports = (sequelize: any, DataTypes: any) => {
       },
       comment: "Estado del usuario",
     },
+    updatedAtUser: {
+      defaultValue:sequelize.literal(" NULL ON UPDATE CURRENT_TIMESTAMP"),
+      type: DataTypes.DATE
+    },
+    createdAtUser: {
+      defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+      allowNull: false,
+      type: DataTypes.DATE
+    }
 
   }, {
     sequelize,
+    timestamps:false,
     modelName: 'pe_users',
   });
   return pe_users;

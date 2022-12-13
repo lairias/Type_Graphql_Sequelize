@@ -40,16 +40,19 @@ module.exports = (sequelize: any, DataTypes: any) => {
       unique: true,
       comment: "Nombre de permiso",
     },
+    
     createdAtPermission: {
       allowNull: false,
+      defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
       type: DataTypes.DATE
     },
     updatedAtPermission: {
-      allowNull: false,
+      defaultValue:sequelize.literal(" NULL ON UPDATE CURRENT_TIMESTAMP"),
       type: DataTypes.DATE
     }
 
   }, {
+    timestamps:false,
     sequelize,
     modelName: 'permission',
   });

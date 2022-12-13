@@ -1,5 +1,6 @@
 import {gql} from "apollo-server-express"
 const typeDefs = gql`
+
 type pe_people {
   cod_people: ID,
   cod_user: ID,
@@ -9,6 +10,7 @@ type pe_people {
   photoProfile: String,
   photoBackground: String,
 }
+
 type User {
   cod_user : ID,
   email: String,
@@ -18,7 +20,7 @@ type User {
 }
   type Query {
     hello: String
-    GetAllUser: [User]
+    GetAllUser: [pe_people]
   }
 `;
 export default typeDefs;

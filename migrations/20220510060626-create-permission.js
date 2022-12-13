@@ -20,7 +20,16 @@ module.exports = {
         unique: true,
         comment: "Nombre de permiso",
       },
-    });
+      createdAtPermission: {
+        allowNull: false,
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+        type: Sequelize.DATE
+      },
+      updatedAtPermission: {
+        defaultValue:Sequelize.literal(" NULL ON UPDATE CURRENT_TIMESTAMP"),
+        type: Sequelize.DATE
+      }
+    }, {timestamps:false});
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('permissions');

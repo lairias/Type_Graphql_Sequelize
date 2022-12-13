@@ -18,7 +18,16 @@ module.exports = {
         type: Sequelize.STRING(120),
         unique: true
       },
-    });
+      createdAtRole: {
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      updatedAtRole: {
+        defaultValue:Sequelize.literal(" NULL ON UPDATE CURRENT_TIMESTAMP"),
+        type: Sequelize.DATE
+      }
+    }, {timestamps: false});
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('role');

@@ -91,12 +91,14 @@ updatedAtPeople!: string;
       allowNull: false,
       comment: "Fecha de nacimiento del usuario",
     },
+
     createdAtPeople: {
+      defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
       allowNull: false,
       type: DataTypes.DATE
     },
     updatedAtPeople: {
-      allowNull: false,
+      defaultValue:sequelize.literal(" NULL ON UPDATE CURRENT_TIMESTAMP"),
       type: DataTypes.DATE
     }
   }, {

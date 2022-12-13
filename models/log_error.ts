@@ -33,14 +33,16 @@ type_error: {
   type: DataTypes.STRING
 },
 createdAtError: {
+  defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
   allowNull: false,
   type: DataTypes.DATE
 },
 updatedAtError: {
-  allowNull: false,
+  defaultValue:sequelize.literal(" NULL ON UPDATE CURRENT_TIMESTAMP"),
   type: DataTypes.DATE
 }
   }, {
+    timestamps:false,
     sequelize,
     modelName: 'log_error',
   });

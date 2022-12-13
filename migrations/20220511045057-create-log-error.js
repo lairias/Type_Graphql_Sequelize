@@ -1,4 +1,7 @@
 'use strict';
+
+const { timeStamp } = require("console");
+
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('log_errors', {
@@ -21,15 +24,17 @@ module.exports = {
         allowNull:false,
         type:Sequelize.STRING
       },
-      createdAt: {
+      createdAtError: {
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
-        allowNull: false,
+      updatedAtError: {
+        defaultValue:Sequelize.literal(" NULL ON UPDATE CURRENT_TIMESTAMP"),
         type: Sequelize.DATE
       }
-    });
+    
+    }, {timestamp:false});
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('log_errors');

@@ -12,6 +12,8 @@ module.exports = (sequelize: any, DataTypes: any) => {
     nam_role!: string;
     desc_role!: string;
     ins_role!: boolean;
+    createdAtRole!: string
+    updatedAtRole!: string
     static associate(models: any) {
       role.belongsToMany(models.pe_users, {
         through: 'user_has_role',
@@ -46,7 +48,17 @@ module.exports = (sequelize: any, DataTypes: any) => {
       unique: true,
       comment: "Nombre de rol",
     },
+  createdAtRole: {
+    allowNull: false,
+    defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+    type: DataTypes.DATE
+  },
+  updatedAtRole: {
+    defaultValue:sequelize.literal(" NULL ON UPDATE CURRENT_TIMESTAMP"),
+      type: DataTypes.DATE
+    }
   }, {
+    timestamps:false,
     sequelize,
     modelName: 'role',
   });
