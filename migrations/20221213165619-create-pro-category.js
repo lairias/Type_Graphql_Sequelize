@@ -2,30 +2,41 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('pro_categories', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
+      cod_category: {
+        type: Sequelize.INTEGER,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        autoIncrement: true,
+        comment: "Código de categoria",
       },
-      firstName: {
-        type: Sequelize.STRING
-      },
-      lastName: {
-        type: Sequelize.STRING
-      },
-      email: {
-        type: Sequelize.STRING
-      },
-      createdAt: {
+      nam_category: {
+        type: Sequelize.STRING,
         allowNull: false,
+        comment: "Nombre de la categoria",
+      },
+      des_category: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        comment: "Descripción de la categoria",
+      },
+      inv_category: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        comment: "cantidad de productos",
+      },
+      photo_categorytegory: {
+        type: Sequelize.JSONTYPE,
+        comment: "Catalago de fotografías",
+      },
+      createdAtCategory: {
+        allowNull: false,
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
         type: Sequelize.DATE
       },
-      updatedAt: {
-        allowNull: false,
+      updatedAtCategory: {
+        defaultValue:Sequelize.literal(" NULL ON UPDATE CURRENT_TIMESTAMP"),
         type: Sequelize.DATE
       }
-    });
+    },{timestamps:false});
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('pro_categories');
