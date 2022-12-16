@@ -1,25 +1,24 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class interact_like extends Model {
+import {Model} from 'sequelize'
+import {IOffters} from '../types'
+module.exports = (sequelize:any, DataTypes:any) => {
+  class pro_offters extends Model<IOffters> implements IOffters {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
+    static associate(models:any) {
       // define association here
     }
   }
-  interact_like.init({
+  pro_offters.init({
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
     email: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'interact_like',
+    modelName: 'pro_offters',
   });
-  return interact_like;
+  return pro_offters;
 };

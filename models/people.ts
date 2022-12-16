@@ -22,15 +22,15 @@ module.exports = (sequelize: any, DataTypes: any) => {
     age!: number;
     birthDate!: Date;
     createdAtPeople!: string;
-updatedAtPeople!: string;
+    updatedAtPeople!: string;
   }
   pe_people.init({
     cod_people: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-        comment: "Código de persona",
-      },
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      comment: "Código de persona",
+    },
     cod_user: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -102,7 +102,7 @@ updatedAtPeople!: string;
       type: DataTypes.DATE
     }
   }, {
-      timestamps: false,
+    timestamps: false,
     sequelize,
     modelName: 'pe_people',
   });

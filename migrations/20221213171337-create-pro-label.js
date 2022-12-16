@@ -2,30 +2,32 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('pro_labels', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
+      cod_label_product: {
+        type: Sequelize.INTEGER,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        autoIncrement: true,
+        comment: 'Código de fotografía',
       },
-      firstName: {
-        type: Sequelize.STRING
-      },
-      lastName: {
-        type: Sequelize.STRING
-      },
-      email: {
-        type: Sequelize.STRING
-      },
-      createdAt: {
+      name_label_product: {
+        type: Sequelize.STRING,
         allowNull: false,
+        comment: 'Código de producto',
+      },
+      ins_label_product: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        comment: 'Url de la foto',
+      },
+      createdAtLabelProduct: {
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP "),
         type: Sequelize.DATE
       },
-      updatedAt: {
+      updatedAtLabelProduct: {
+        defaultValue: Sequelize.literal("NULL ON UPDATE CURRENT_TIMESTAMP"),
         allowNull: false,
         type: Sequelize.DATE
       }
-    });
+    }, {timestamps:false});
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('pro_labels');

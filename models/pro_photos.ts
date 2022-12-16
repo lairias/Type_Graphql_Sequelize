@@ -1,21 +1,22 @@
 'use strict';
- import {Model
+import {
+  Model
 } from 'sequelize';
-import {IPhotoProduct} from "../types"
-module.exports = (sequelize:any, DataTypes:any) => {
+import { IPhotoProduct } from "../types"
+module.exports = (sequelize: any, DataTypes: any) => {
   class pro_photos extends Model<IPhotoProduct> implements IPhotoProduct {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-     cod_photo_product!:number;
-     cod_product!:number;
-     path_photo_product!:string;
-     ins_photo_product!: boolean;
-     createdAtPhotoProduct!:string;
-     updatedAtPhotoProduct!:string;
-    static associate(models:any) {
+    cod_photo_product!: number;
+    cod_product!: number;
+    path_photo_product!: string;
+    ins_photo_product!: boolean;
+    createdAtPhotoProduct!: string;
+    updatedAtPhotoProduct!: string;
+    static associate(models: any) {
       models.pro_products.hasMany(pro_photos, {
         foreignKey: 'cod_user',
         onDelete: 'CASCADE',
@@ -45,7 +46,7 @@ module.exports = (sequelize:any, DataTypes:any) => {
       comment: "estado de la foto",
     },
     updatedAtPhotoProduct: {
-      defaultValue:sequelize.literal(" NULL ON UPDATE CURRENT_TIMESTAMP"),
+      defaultValue: sequelize.literal(" NULL ON UPDATE CURRENT_TIMESTAMP"),
       type: DataTypes.DATE
     },
     createdAtPhotoProduct: {
@@ -54,7 +55,7 @@ module.exports = (sequelize:any, DataTypes:any) => {
       type: DataTypes.DATE
     }
   }, {
-    timestamps:false,
+    timestamps: false,
     sequelize,
     modelName: 'pro_photos',
   });

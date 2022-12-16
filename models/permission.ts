@@ -27,7 +27,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
-      comment: "Código de permiso",
+      comment: 'Código de permiso',
     },
     desc_permission: {
       type: DataTypes.STRING(250),
