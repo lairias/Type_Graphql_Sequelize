@@ -1,10 +1,53 @@
 type Ind = true | false
 export enum size {S = 0, M = 0, L = 0, XL = 0, XXL = 0, XXXL = 0}
+export interface IappSettings{
+  cod_setting:number
+  nam_setting:string
+  dat_setting:string
+  cod_categorie_settings:string
+  ins_setting:Ind
+  createdAtSetting:string;
+  updatedAtSetting:string;
+}
+export interface IsettingCategorie{
+  cod_setting_categorie:number;
+  nam_setting_categorie:string
+  des_setting_categorie:string;
+  sub_setting_categorie:string;
+  createdAtSetting:string;
+  updatedAtSetting:string;
+
+}
+export interface IappNotification{
+  cod_notification:number;
+  view_notification:number;
+  label_notificaion:string;
+  createdAtNotification:string;
+  updatedAtNotification:string;
+}
 export interface IshoppingCart{
   cod_user:number;
   cod_product:number;
   createdAtShoppingCart:string;
   updatedAtShippingCart:string;
+}
+export interface IinterectComments{
+  cod_comment:number;
+  cod_user:number;
+  cod_product:number;
+  label_comment:string;
+  updatedAtInterectComments: string
+  createdAtInterectComments: string
+}
+export interface ImodalComingSoonAlert{
+  ins_show_modal : Ind;
+  label_modal:string;
+  modal_information:string;
+  photoBackground:string;
+  start_time: string;
+  end_time:string;
+  updatedAtModalComingSoonAlert: string
+  createdAtModalComingSoonAlert: string
 }
 export interface IinteractLike{
   cod_product:number
