@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('pro_categories', {
+    await queryInterface.createTable('pro_category', {
       cod_category: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -10,7 +10,7 @@ module.exports = {
       },
       nam_category: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false,                                     
         comment: "Nombre de la categoria",
       },
       des_category: {
@@ -24,7 +24,7 @@ module.exports = {
         comment: "cantidad de productos",
       },
       photo_categorytegory: {
-        type: Sequelize.JSONTYPE,
+        type: Sequelize.JSON,
         comment: "Catalago de fotografías",
       },
       createdAtCategory: {
@@ -38,7 +38,7 @@ module.exports = {
       }
     },{timestamps:false});
   },
-  async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('pro_categories');
+  async down(queryInterface,Sequelize) {
+    await queryInterface.dropTable('pro_category');
   }
 };

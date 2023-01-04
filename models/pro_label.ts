@@ -12,7 +12,6 @@ module.exports = (sequelize:any, DataTypes:any) => {
     static associate (models:any) {
       // define association here
     }
-
   }
   pro_label.init({
     cod_label_product: {
@@ -32,12 +31,10 @@ module.exports = (sequelize:any, DataTypes:any) => {
       comment: 'Url de la foto',
     },
     createdAtLabelProduct: {
-      defaultValue: DataTypes.literal("CURRENT_TIMESTAMP "),
+      allowNull: false,
       type: DataTypes.DATE
     },
     updatedAtLabelProduct: {
-      defaultValue: DataTypes.literal("NULL ON UPDATE CURRENT_TIMESTAMP"),
-      allowNull: false,
       type: DataTypes.DATE
     }
     

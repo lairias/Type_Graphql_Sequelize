@@ -28,8 +28,8 @@ module.exports = (sequelize:any, DataTypes:any) => {
       comment: 'Código de fotografía'
     },
     cod_user: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUID4,
+      type: DataTypes.INTEGER,
+      allowNull: false,
       comment: 'Código de producto'
     },
     cod_category: {
@@ -38,7 +38,7 @@ module.exports = (sequelize:any, DataTypes:any) => {
       comment: 'Url de la foto'
     },
     cod_product: {
-      type: DataTypes.JSONTYPE,
+      type: DataTypes.INTEGER,
       allowNull: false,
       comment: 'Etiquetas de productos'
     },

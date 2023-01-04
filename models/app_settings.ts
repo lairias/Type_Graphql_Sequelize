@@ -5,7 +5,6 @@ module.exports = (sequelize:any, DataTypes:any) => {
   class app_settings extends Model<IappSettings> implements IappSettings {
     createdAtSetting!: string
     updatedAtSetting!: string
-    cod_categorie_settings!:string
     cod_setting!:number
     nam_setting!:string
     dat_setting!:string
@@ -21,12 +20,7 @@ module.exports = (sequelize:any, DataTypes:any) => {
       autoIncrement: true,
       comment: "Código de rol",
     },
-    cod_categorie_settings: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-      comment: "Código de categoria de ajuste",
-    },
+   
     nam_setting: {
       type: DataTypes.STRING(250),
       allowNull: false,

@@ -2,27 +2,41 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('pro_saved_laters', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
+      cod_saved_later: {
+        type: Sequelize.INTEGER,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        autoIncrement: true,
+        comment: "Código de persona",
       },
-      firstName: {
-        type: Sequelize.STRING
+      cod_product: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        comment: "Nombre del usuario",
+        references: {
+          model: {
+            tableName: 'pro_products',
+          },
+          key: 'cod_product'
+        },
       },
-      lastName: {
-        type: Sequelize.STRING
+      cod_user: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        comment: "Nombre del usuario",
+        references: {
+          model: {
+            tableName: 'pe_users',
+          },
+          key: 'cod_user'
+        },
       },
-      email: {
-        type: Sequelize.STRING
-      },
-      createdAt: {
+      createdAtSavedLater: {
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
-        allowNull: false,
+      updatedAtSaveLater: {
+        defaultValue:Sequelize.literal(" NULL ON UPDATE CURRENT_TIMESTAMP"),
         type: Sequelize.DATE
       }
     });

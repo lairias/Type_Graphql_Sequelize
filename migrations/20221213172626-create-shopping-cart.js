@@ -2,32 +2,39 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('shopping_carts', {
-      id: {
+      cod_user: {
+        type: Sequelize.INTEGER,
+        comment: "Código de persona",
+        references: {
+          model: {
+            tableName: 'pe_users',
+          },
+          key: 'cod_user'
+        },
+      },
+      cod_product: {
+        type: Sequelize.INTEGER,
         allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
+        comment: "Nombre del usuario",
+        references: {
+          model: {
+            tableName: 'pro_products',
+          },
+          key: 'cod_product'
+        },
       },
-      firstName: {
-        type: Sequelize.STRING
-      },
-      lastName: {
-        type: Sequelize.STRING
-      },
-      email: {
-        type: Sequelize.STRING
-      },
-      createdAt: {
+      createdAtShoppingCart: {
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
-        allowNull: false,
+      updatedAtShippingCart: {
+        defaultValue:Sequelize.literal(" NULL ON UPDATE CURRENT_TIMESTAMP"),
         type: Sequelize.DATE
       }
-    });
+    },{timestamps:false});
   },
-  async down(queryInterface, Sequelize) {
+  async down(queryInterface,Sequelize) {
     await queryInterface.dropTable('shopping_carts');
   }
 };

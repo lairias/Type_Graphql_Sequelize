@@ -24,12 +24,11 @@ module.exports = {
       },
       updatedAtLabelProduct: {
         defaultValue: Sequelize.literal("NULL ON UPDATE CURRENT_TIMESTAMP"),
-        allowNull: false,
         type: Sequelize.DATE
       }
     }, {timestamps:false});
   },
-  async down(queryInterface, Sequelize) {
+  async down(queryInterface,Sequelize ) {
     await queryInterface.dropTable('pro_labels');
   }
 };

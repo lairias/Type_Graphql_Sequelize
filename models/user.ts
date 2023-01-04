@@ -41,7 +41,6 @@ module.exports = (sequelize: any, DataTypes: any) => {
       autoIncrement: true,
       comment: "Código de usuario",
     },
-
     email: {
       type: DataTypes.STRING,
       allowNull: false,

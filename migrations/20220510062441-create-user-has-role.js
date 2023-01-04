@@ -22,9 +22,9 @@ module.exports = {
           key: 'cod_role',  // key in Target model
         },
       },
-    });
+    },{timestamps:false});
   },
-  async down(queryInterface, Sequelize) {
+  async down(queryInterface,Sequelize) {
     await queryInterface.dropTable('user_has_roles');
   }
 };

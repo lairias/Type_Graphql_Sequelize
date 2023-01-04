@@ -41,21 +41,21 @@ module.exports = {
         comment: "Contraseña del usuario",
       },
       
-    _token: {
-      type: Sequelize.STRING(250),
-      allowNull: false,
-      defaultValue: false,
-      validate: {
-        notEmpty: true
+      _token: {
+        type: Sequelize.STRING(250),
+        allowNull: false,
+        defaultValue: false,
+        validate: {
+          notEmpty: true
+        },
+        comment: "Indicador de primer ingreso",
       },
-      comment: "Indicador de primer ingreso",
-    },
-    verifiedEmail: {
-      type: Sequelize.BOOLEAN,
-      allowNull: false,
-      defaultValue: false,
-      comment: "Indicador de correo verificado",
-    },
+      verifiedEmail: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
+        comment: "Indicador de correo verificado",
+      },
       ind_usr: {
         type:Sequelize.BOOLEAN,
         allowNull: false,

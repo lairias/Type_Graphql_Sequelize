@@ -1,4 +1,5 @@
 'use strict';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('pro_products', {
@@ -10,38 +11,45 @@ module.exports = {
       },
       cod_category: {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        comment: 'Url de la foto',
-        references:{
-          model:{
-            tableName:'pro_category'
+        references: {
+          model: {
+            tableName: 'pro_category',
           },
-          key:'cod_category'
-        }
+          key: 'cod_category'
+        },
       },
       hash_product: {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUID4,
-        comment: 'Código de producto',
+        comment: 'Código de barras del producto',
+      },
+      view_product:{
+        type:Sequelize.JSON,
+        comment:'conteo de visitas'
       },
       nam_product: {
         type: Sequelize.STRING,
         allowNull: false,
-        comment: 'Url de la foto',
+        comment: 'nombre del producto',
       },
       price_product: {
         type: Sequelize.STRING,
         allowNull: false,
-        comment: 'Url de la foto',
+        comment: 'precio del producto',
+      },
+      cod_label_product: {
+        type: Sequelize.JSON,
+        allowNull: false,
+        comment: 'etiquetas del producto'
       },
       ins_product: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
-        comment: 'Url de la foto',
+        comment: 'estado del producto',
       },
       size_product: {
-        type: Sequelize.JSONTYPE,
-        defaultValue: size,
+        type: Sequelize.JSON,
+        defaultValue: '{S = 0, M = 0, L = 0, XL = 0, XXL = 0, XXXL = 0}',
         allowNull: false,
         comment: 'Url de la foto',
       },
@@ -69,8 +77,8 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-  },),{timestamps:false}},
-  async down(queryInterface, Sequelize) {
+    },),{timestamps:false}},
+  async down(queryInterface,Sequelize) {
     await queryInterface.dropTable('pro_products');
   }
 };

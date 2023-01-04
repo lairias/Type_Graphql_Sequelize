@@ -11,39 +11,39 @@ module.exports = {
       cod_user:{
         type: Sequelize.INTEGER,
         comment: "Código de usuario",
-         allowNull: false,
-          references: {
-            model: {
-              tableName: 'pe_users',
-            },
-            key: 'cod_user'
+        allowNull: false,
+        references: {
+          model: {
+            tableName: 'pe_users',
           },
-       },
+          key: 'cod_user'
+        },
+      },
       firstName:{
         type: Sequelize.STRING(120),
-         allowNull: false,
-         validate: {
-           notEmpty: true
-         },
-         comment: "Nombre del usuario",
-       },
-       middleName:{
-         type:Sequelize.STRING(120),
-         allowNull: false,
-         validate: {
-           notEmpty: true
-         },
-         comment: "Segundo nombre del usuario",
-       },
-       lastName: {
-         type:Sequelize.STRING(120),
-         allowNull: false,
-         validate: {
-           notEmpty: true
-         },
-         comment: "Apellido del usuario",
-       },
-       photoProfile: {
+        allowNull: false,
+        validate: {
+          notEmpty: true
+        },
+        comment: "Nombre del usuario",
+      },
+      middleName:{
+        type:Sequelize.STRING(120),
+        allowNull: false,
+        validate: {
+          notEmpty: true
+        },
+        comment: "Segundo nombre del usuario",
+      },
+      lastName: {
+        type:Sequelize.STRING(120),
+        allowNull: false,
+        validate: {
+          notEmpty: true
+        },
+        comment: "Apellido del usuario",
+      },
+      photoProfile: {
         type:Sequelize.STRING(250),
         allowNull: false,
         validate: {
@@ -85,7 +85,7 @@ module.exports = {
       }
     },{ timestamps: false } );
   },
-  async down(queryInterface, Sequelize) {
+  async down(queryInterface) {
     await queryInterface.dropTable('pe_people');
   }
 };

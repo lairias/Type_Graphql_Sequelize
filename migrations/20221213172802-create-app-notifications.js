@@ -2,30 +2,35 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('app_notifications', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
+      cod_notification: {
+        type: Sequelize.INTEGER,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        autoIncrement: true,
+        comment: "Código de notificación",
       },
-      firstName: {
-        type: Sequelize.STRING
-      },
-      lastName: {
-        type: Sequelize.STRING
-      },
-      email: {
-        type: Sequelize.STRING
-      },
-      createdAt: {
+      view_notification: {
+        type: Sequelize.STRING(250),
         allowNull: false,
-        type: Sequelize.DATE
+        comment: "visualizaciones de notificicación",
       },
-      updatedAt: {
+      label_notificaion: {
+        type: Sequelize.STRING(250),
+        defaultValue: true,
         allowNull: false,
-        type: Sequelize.DATE
+        comment: "Informacion de la notificación",
+      },
+      createdAtNotification: {
+        allowNull: false,
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+        type: Sequelize.DATE,
+        comment:"fecha de creación"
+      },
+      updatedAtNotification: {
+        defaultValue:Sequelize.literal(" NULL ON UPDATE CURRENT_TIMESTAMP"),
+        type: Sequelize.DATE,
+        comment:"fecha de modificación"
       }
-    });
+    },{timestamps:false});
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('app_notifications');

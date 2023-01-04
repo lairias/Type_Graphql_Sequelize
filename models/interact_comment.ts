@@ -3,7 +3,7 @@ import  {Model
 } from 'sequelize'
 import {IinterectComments} from '../types'
 module.exports = (sequelize:any, DataTypes:any) => {
-  class interact_comment extends Model<IinterectComments> implements IinterectComments {
+  class interact_comments extends Model<IinterectComments> implements IinterectComments {
     cod_comment!:number
     cod_user!: number;
     cod_product!: number;
@@ -16,26 +16,33 @@ module.exports = (sequelize:any, DataTypes:any) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models:any) {
+      models.pe_users.hasMany(interact_comments, {
+        foreignKey: 'cod_user',
+        onDelete: 'CASCADE',
+      })
+      models.pro_products.hasMany(interact_comments, {
+        foreignKey: 'cod_product',
+        onDelete: 'CASCADE',
+      })
       // define association here
     }
   }
-  interact_comment.init({
+  interact_comments.init({
     cod_comment: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true,
       comment: "Código de rol",
     },
+    cod_product: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      comment: 'Código de producto'
+    },
     cod_user: {
-      type: DataTypes.STRING(250),
+      type: DataTypes.INTEGER,
       allowNull: false,
       comment: "Descripción de rol",
-    },
-    cod_product: {
-      type: DataTypes.STRING(250),
-      defaultValue: true,
-      allowNull: false,
-      comment: "Indicador de estado de rol",
     },
     label_comment: {
       allowNull: false,
@@ -45,16 +52,14 @@ module.exports = (sequelize:any, DataTypes:any) => {
     },
     createdAtInterectComments: {
       allowNull: false,
-      defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
       type: DataTypes.DATE
     },
     updatedAtInterectComments: {
-      defaultValue:sequelize.literal(" NULL ON UPDATE CURRENT_TIMESTAMP"),
       type: DataTypes.DATE
     }
   }, {timestamps:false,
     sequelize,
-    modelName: 'interact_comment',
+    modelName: 'interact_comments',
   });
-  return interact_comment;
+  return interact_comments;
 };

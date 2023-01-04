@@ -1,6 +1,5 @@
 'use strict';
 
-const { timeStamp } = require("console");
 
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -36,7 +35,7 @@ module.exports = {
     
     }, {timestamp:false});
   },
-  async down(queryInterface, Sequelize) {
+  async down(queryInterface,Sequelize) {
     await queryInterface.dropTable('log_errors');
   }
 };

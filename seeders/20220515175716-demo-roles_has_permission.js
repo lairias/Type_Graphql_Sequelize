@@ -14,7 +14,7 @@ module.exports = {
       {
         cod_role: 2,
         cod_permission: 2,}
-  ]);
+    ]);
   },
   down: (queryInterface, Sequelize) => {
     return queryInterface.bulkDelete('role_has_permissions', null, {});

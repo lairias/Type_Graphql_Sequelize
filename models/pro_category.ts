@@ -9,12 +9,12 @@ module.exports = (sequelize:any, DataTypes:any) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-     cod_category!: number
-     nam_category!:string
-     des_category!:string
-     cod_product!:number
-     inv_category!:number
-     photo_category!:string
+    cod_category!: number
+    nam_category!:string
+    des_category!:string
+    cod_product!:number
+    inv_category!:number
+    photo_category!:string
 
   }
   pro_category.init({
@@ -40,7 +40,7 @@ module.exports = (sequelize:any, DataTypes:any) => {
       comment: "cantidad de productos",
     },
     photo_categorytegory: {
-      type: DataTypes.JSONTYPE,
+      type: DataTypes.JSON,
       comment: "Catalago de fotografías",
     },
     createdAtCategory: {

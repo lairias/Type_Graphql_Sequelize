@@ -2,32 +2,57 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('pro_recently_seens', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
+      cod_recetlySenn: {
+        type: Sequelize.INTEGER,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        autoIncrement: true,
+        comment: 'Código de fotografía'
       },
-      firstName: {
-        type: Sequelize.STRING
-      },
-      lastName: {
-        type: Sequelize.STRING
-      },
-      email: {
-        type: Sequelize.STRING
-      },
-      createdAt: {
+      cod_user: {
+        type: Sequelize.INTEGER,
         allowNull: false,
+        comment: 'Código de producto',
+        references: {
+          model: {
+            tableName: 'pe_users',
+          },
+          key: 'cod_user'
+        },
+      },
+      cod_category: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        comment: 'Url de la foto',
+        references: {
+          model: {
+            tableName: 'pro_category',
+          },
+          key: 'cod_category'
+        },
+      },
+      cod_product: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        comment: 'Etiquetas de productos',
+        references: {
+          model: {
+            tableName: 'pro_products',
+          },
+          key: 'cod_product'
+        },
+      },
+      updatedAtRecetlySenn: {
+        defaultValue: Sequelize.literal(' NULL ON UPDATE CURRENT_TIMESTAMP'),
         type: Sequelize.DATE
       },
-      updatedAt: {
+      createdAtRecetlySenn: {
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
         allowNull: false,
         type: Sequelize.DATE
       }
     });
   },
-  async down(queryInterface, Sequelize) {
+  async down(queryInterface,Sequelize) {
     await queryInterface.dropTable('pro_recently_seens');
   }
 };

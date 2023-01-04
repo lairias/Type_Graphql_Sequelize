@@ -31,8 +31,7 @@ module.exports = (sequelize:any, DataTypes:any) => {
       comment: "visualizaciones de notificicación",
     },
     sub_setting_categorie: {
-      type: DataTypes.STRING(250),
-      defaultValue: true,
+      type: DataTypes.JSON,
       allowNull: false,
       comment: "Informacion de la notificación",
     },
