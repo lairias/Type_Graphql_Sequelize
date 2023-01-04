@@ -1,7 +1,6 @@
 import express,{Application} from 'express';
 import {ApolloServer} from 'apollo-server-express';
-import typeDefs from './graphql/shema/book.shema';
-import resolvers from './graphql/resolvers/users.resolvers';
+import {typeDefs,resolvers} from '../src/graphql/shema/index'
 import db from '../config/index';
 import  Usuairo_R from './router/user.router';
 
