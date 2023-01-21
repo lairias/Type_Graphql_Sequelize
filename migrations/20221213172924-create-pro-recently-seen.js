@@ -25,7 +25,7 @@ module.exports = {
         comment: 'Url de la foto',
         references: {
           model: {
-            tableName: 'pro_category',
+            tableName: 'pro_categoria',
           },
           key: 'cod_category'
         },

@@ -2,7 +2,7 @@ import {gql} from "apollo-server-express"
 import db from '../../../models';
 
 export const typeDefs = gql`
-type pe_people {
+ type pe_people {
   cod_people: ID,
   cod_user: ID,
   firstName: String,
@@ -17,15 +17,21 @@ type pe_people {
   updatedAtPeople: String,
 }
 type Query {
-    GetAllUser:[pe_people]
+    GetAllPeople:[pe_people]
+    GetPeople(cod_people : ID!) : pe_people
 }
 `
 export const resolvers = {
   Query:{
-    GetAllUser: async() => {
-      const users = await db.pe_people.findAll(
+    GetAllPeople: async() => {
+      const people = await db.pe_people.findAll(
       );
-      return users;
+      return people;
+    },
+    GetPeople: async(parent:any, args:any, contextValue:any, info:any) => {
+      const people = await db.pe_people.findByPk(args.cod_people
+      );
+      return people;
     }
   }
 }

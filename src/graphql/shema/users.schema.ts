@@ -1,19 +1,26 @@
 import {gql} from "apollo-server-express"
 import db from '../../../models';
 
-const typeDefs = gql`
-type User {
+export const typeDefs = gql`
+ type User {
   cod_user : ID,
   email: String,
   email_recovery: String,
   userName: String,
-  pe_people: [pe_people],
+  verifiedEmail:Boolean,
+  ind_usr:Boolean,
+  ins_usr:Boolean,
+  updatedAtUser:String,
+  createdAtUser:String
+}
+type Query{
+  GetAllUser:[User]
 }
 `
-const resolvers = {
+export const resolvers = {
   Query:{
     GetAllUser: async() => {
-      const users = await db.pe_people.findAll(
+      const users = await db.pe_users.findAll(
       );
       return users;
     }

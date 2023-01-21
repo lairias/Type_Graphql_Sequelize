@@ -20,7 +20,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     static associate (models: any) {
-      models.pro_category.hasMany(pro_products, {
+      models.pro_categoria.hasMany(pro_products, {
         foreignKey: 'cod_category',
         onDelete: 'CASCADE'
       })

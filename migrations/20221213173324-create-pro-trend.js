@@ -25,7 +25,7 @@ module.exports = {
         comment: "Nombre del usuario",
         references: {
           model: {
-            tableName: 'pro_category',
+            tableName: 'pro_categoria',
           },
           key: 'cod_category'
         },

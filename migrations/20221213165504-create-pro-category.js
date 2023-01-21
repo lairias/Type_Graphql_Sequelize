@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('pro_category', {
+    await queryInterface.createTable('pro_categoria', {
       cod_category: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -39,6 +39,6 @@ module.exports = {
     },{timestamps:false});
   },
   async down(queryInterface,Sequelize) {
-    await queryInterface.dropTable('pro_category');
+    await queryInterface.dropTable('pro_categoria');
   }
 };

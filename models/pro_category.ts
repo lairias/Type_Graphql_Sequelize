@@ -3,7 +3,7 @@
 import {Model} from "sequelize"
 import {IProCategory} from '../types'
 module.exports = (sequelize:any, DataTypes:any) => {
-  class pro_category extends Model<IProCategory> implements IProCategory {
+  class pro_categoria extends Model<IProCategory> implements IProCategory {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -17,7 +17,7 @@ module.exports = (sequelize:any, DataTypes:any) => {
     photo_category!:string
 
   }
-  pro_category.init({
+  pro_categoria.init({
     cod_category: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -55,7 +55,7 @@ module.exports = (sequelize:any, DataTypes:any) => {
   }, {
     timestamps:false,
     sequelize,
-    modelName: 'pro_category',
+    modelName: 'pro_categoria',
   });
-  return pro_category;
+  return pro_categoria;
 };
